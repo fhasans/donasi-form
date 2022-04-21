@@ -1,0 +1,88 @@
+
+.main-container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* margin: 100px; */
+    overflow: hidden;
+    /* flex-direction: row; */
+    /* background-color: red; */
+}
+
+.box{
+    width: 500px;
+    height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    /* align-self: flex-start; */
+    
+}
+
+.box1{
+    background-color: white;
+    border-radius: 20px;
+}
+.box2{
+    /* background-color: red; */
+}
+
+.index .box1{
+    z-index: 11;
+    position:absolute;
+    margin-left: 80px;
+    
+    
+}
+.index .box2{
+    position: absolute;
+    /* margin-left: -500px; */
+    /* top: 50px; */
+    top:0;
+    right: 0;
+    margin-right: 80px;
+    z-index: 1;
+}
+
+.flx{
+    flex-direction: column;
+}
+
+.title{
+    /* background-color: red; */
+    width: 100%;
+    height: 10%;
+}
+
+.input{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+    width: 100%;
+    height: 60%;
+}
+
+.quotes{
+    
+    width: 100%;
+    height: 30%;
+    /* background-color: red; */
+    margin-bottom: 5%;
+    
+}
+
+.qts{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    /* background-color: green; */
+}
+
+.qtsText{
+    margin-left: 8%;
+    word-wrap: break-word;
+    color: rgb(0, 97, 167);;
+}
