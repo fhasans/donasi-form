@@ -3,6 +3,7 @@ import './Container.css';
 import backgroundimg from '../assets/logo.png'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'
+import {Form, Field} from 'react-final-form';
 
 function Container(props) {
     const [email, setEmail] = useState();
@@ -16,14 +17,11 @@ function Container(props) {
         const rupiah = (number)=>{
             return `Rp. ${number.replace(/,/g,"").replace(/[^0-9]/g,"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
           }
-        //   console.log(getDec);
-
-        //   const normalize = getDec[0] && getDec[0].replace(/[^0-9]/g, "");
         const formatted = rupiah(val).toString();
         setFormattedInput(formatted);
-        // console.log("normalize: ", normalize);
-        // console.log("formatted:  ", formatted);
     }
+
+    const handleError = !email ? true : email.match(/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/) ? false : true
 
     // console.log(quote)
     console.log("email : ", email);
@@ -40,27 +38,13 @@ function Container(props) {
                 <div className='input'>
                     <TextField
                             onChange={text => setEmail(text.target.value)}
-                            // id="outlined-basic" label="Outlined" variant="outlined"
-                            error={
-                                !email
-                                ?
-                                true
-                                :
-                                email.match(/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/)
-                                ?
-                                false
-                                :
-                                true
-                                
-                            }
+                            error={handleError}
                             id="outlined-error-helper-text"
                             label="Email"
-                            // defaultValue="Hello World"
                             helperText={!email ? "Email tidak boleh kosong!" : email.match(/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/) ? null : "Format email salah dan hanya menerima gmail" }
-                            // onChange={}
                             style={{ width: '75%', margin: 13 }}
                         />
-                            <TextField
+                    <TextField
 
                                 id="outlined-password-input"
                                 label="Password"
@@ -68,13 +52,9 @@ function Container(props) {
                                 autoComplete="current-password"
                                 onChange={text => setPassword(text.target.value)}
                                 error={!password ? true : false}
-                                // id="outlined-error-helper-text"
-                                // label="Error"
-                                // defaultValue="Hello World"
                                 helperText={!password ? "Password tidak boleh kosong!" : null}
-                                // onChange={}
                                 style={{ width: '75%', margin: 13 }}
-                            />
+                    />
 
                     <TextField
                         id="outlined-basic"

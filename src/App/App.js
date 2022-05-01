@@ -7,6 +7,7 @@ import './App.css';
 import AppBar from '../components/AppBar';
 import Container from '../components/Container';
 import axios from "axios"
+import FinalForm from 'components/FinalForm';
 
 function App(props) {
 
@@ -27,6 +28,7 @@ function App(props) {
   return (
     <div className='App'>
       <AppBar />
+      {/* <FinalForm /> */}
       <Container text={`"${quote}"`}/>
     </div>
   );
